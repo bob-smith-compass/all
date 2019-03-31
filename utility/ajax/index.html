@@ -62,7 +62,11 @@
                         },
                         tooltip: {
                             formatter: function () {
-                                return ('Tooltip:  <span class="danger">' + this.series.xAxis.categories[this.point.x] + '</span>')
+                                // return ('Tooltip:  <span class="danger">' + this.series.xAxis.categories[this.point.x] + '</span>')
+                                console.log(this.point.x);
+                                console.log(this.series.data);
+                                // return ('Tooltip:  <span class="danger">' + this.series.data[10].y + '</span>');
+                                return ('Tooltip:  <span class="danger">' + this.series.data[this.point.x].y + 'sqr. Killometers </span>');
                             }
                         },
                         series: [{
