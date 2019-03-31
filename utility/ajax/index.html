@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First Chart</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.highcharts.com/highcharts.js"></script>
+
+    <style>
+        .done {
+            background-color: lightgreen;
+        }
+
+        .danger {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+
+        countries = null;
+        areas = [];
+        //build chart using options above
+        $(document).ready(function () {
+            function getData(url) {
+                $.ajax({
+                    url: url,
+                    context: document.body
+                }).done(function (response) {
+                    countries = response;
+                    // console.log(response);
+                    console.log(response.data);
+                    response.map(e => {
+                        // console.log(e.area);
+                        areas.push(e.area);
+                    });
+                    /** 
+                     * Hightcharts
+                    */
+
+                    var options = {
+
+                        chart: {
+                            renderTo: 'container',
+                            // type: 'bar'
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Countries by area'
+                        },
+                        xAxis: {
+                            categories: ['IBM', 'MS', 'NASDAC', 'Brent', 'FX', 'USD', 'EUR', 'HFS']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Area in Thousands'
+                            }
+                        },
+                        tooltip: {
+                            formatter: function () {
+                                return ('Tooltip:  <span class="danger">' + this.series.xAxis.categories[this.point.x] + '</span>')
+                            }
+                        },
+                        series: [{
+                            name: 'Country area',
+                            data: areas,
+                            // data: [100, 33, 58, 77, -20, 0, 50, -50],
+                            color: '#999999',
+                            negativeColor: '#ef8a62',
+                            fillOpacity: 0.4,
+                        }]
+                    };
+                    chart = new Highcharts.Chart(options);
+
+                    console.log(areas);
+                    $(this).addClass("done");
+                });
+            }
+            getData("https://restcountries.eu/rest/v2/all");
+        });
+    </script>
+
+    <div id="container"></div>
+    <hr />
+    <div id="montainer"></div>
+</body>
+
+</html>
