@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+/**
+ * Move to Server.js all socket.io related code
+ */
+import from 'socket.io';
 
 class App extends Component {
   render() {
