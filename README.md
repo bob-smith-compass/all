@@ -1,3 +1,9 @@
+# Redux
+
+`yarn add redux`
+[https://redux.js.org/introduction/getting-started](https://redux.js.org/introduction/getting-started)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
