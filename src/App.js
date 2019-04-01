@@ -4,7 +4,7 @@ import './App.css';
 /**
  * Move to Server.js all socket.io related code
  */
-import from 'socket.io';
+import soketIO from 'socket.io';
 
 class App extends Component {
   render() {
