@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {createStore} from 'redux';
 /**
  * Move to Server.js all socket.io related code
  */
-import soketIO from 'socket.io';
+// import soketIO from 'socket.io'; // Module not found: Can't resolve 'uws' in '/Users/v738110/Compass/Redux/all/node_modules/engine.io/lib'
 
 /**
  * Redux State management to be moved to a separate file
  * or use react-redux
  */
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 /**
  * This is a reducer, a pure function with (state, action) => state signature.
@@ -44,7 +43,7 @@ let store = createStore(counter)
 // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
 // However it can also be handy to persist the current state in the localStorage.
 
-store.subscribe(() => console.log(store.getState()))
+store.subscribe(() => console.log(store.getState()));
 
 // The only way to mutate the internal state is to dispatch an action.
 // The actions can be serialized, logged or stored and later replayed.
@@ -60,21 +59,9 @@ store.dispatch({ type: 'DECREMENT' })
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h3>All</h3>
+        {store.getState()}
       </div>
     );
   }
