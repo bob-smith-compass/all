@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import {Observable, from} from 'rxjs';
 let nums$ = from([1,2,3,4,5,6]);
 /**
@@ -21,3 +22,13 @@ let nums$ = from([1,2,3,4,5,6]);
   * subscrive to an observable passing an observer
   */
  nums$.subscribe(observer);
+
+export default class MObservable extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}

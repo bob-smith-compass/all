@@ -11,6 +11,7 @@ import './App.css';
  * or use react-redux
  */
 import { createStore } from 'redux';
+import MObservable from './components/observable/Observable';
 
 /**
  * This is a reducer, a pure function with (state, action) => state signature.
@@ -62,6 +63,7 @@ class App extends Component {
       <div>
         <h3>All</h3>
         {store.getState()}
+        <MObservable />
       </div>
     );
   }
